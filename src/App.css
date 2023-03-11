@@ -1,0 +1,249 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1280px;
+  height: 100%;
+  padding: 10px 20px;
+  margin: 0 auto;
+}
+
+.product {
+  width: 65%;
+  height: 100%;
+}
+
+.product-container {
+  padding: 0px 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.product-button-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.sideBar {
+  width: 25%;
+  height: 100vh;
+}
+
+.sideBar ul {
+  list-style-type: none;
+  padding: 0;
+}
+.sideBar ul li {
+  font-size: 40px;
+  font-family: sans-serif;
+  background-color: white;
+  border: 2px solid black;
+  letter-spacing: 0.1em;
+  width: 5em;
+  height: 1.5em;
+  line-height: 1.5em;
+  position: relative;
+  overflow: hidden;
+  margin: 0.5em;
+  cursor: pointer;
+}
+
+.sideBar ul li span {
+  color: white;
+  mix-blend-mode: difference;
+  text-transform: capitalize;
+}
+
+.sideBar ul li::before {
+  content: "";
+  position: absolute;
+  width: 1.5em;
+  height: inherit;
+  background-color: black;
+  border-radius: 50%;
+  top: 0;
+  left: -0.75em;
+  transition: 0.5s ease-out;
+}
+
+.sideBar ul li:hover::before {
+  transform: scale(7);
+}
+
+.cart {
+  margin: 5px;
+  width: 240px;
+  height: 210px;
+  border: 1px solid black;
+  transition: all 0.2s ease-in-out;
+}
+.cart:hover {
+  transform: scale(1.05);
+}
+
+.cart img {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+
+.button {
+  background-image: linear-gradient(-180deg, #37AEE2 0%, #1E96C8 100%);
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-size: 16px;
+  justify-content: center;
+  padding: 1rem 1.75rem;
+  text-decoration: none;
+  width: 200px;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button:hover {
+  background-image: linear-gradient(-180deg, #1D95C9 0%, #17759C 100%);
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 1rem 2rem;
+  }
+}
+
+
+/* ////////////////////////////////// */
+
+
+.top-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu > li {
+  margin: 0 1rem;
+  overflow: hidden;
+}
+
+.menu-button-container {
+  display: none;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.menu-button,
+.menu-button::before,
+.menu-button::after {
+  display: block;
+  background-color: black;
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+}
+
+.menu-button::before {
+  content: '';
+  margin-top: -8px;
+}
+
+.menu-button::after {
+  content: '';
+  margin-top: 8px;
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::before {
+  margin-top: 0px;
+  transform: rotate(405deg);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button {
+  background: rgba(255, 255, 255, 0);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::after {
+  margin-top: 0px;
+  transform: rotate(-405deg);
+}
+
+@media (max-width: 700px) {
+  .menu-button-container {
+    display: flex;
+    margin-top: 15px;
+  }
+  .menu {
+    position: absolute;
+    top: 0;
+    margin: 50px 10px;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+  }
+ 
+  #menu-toggle ~ .menu li {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  #menu-toggle:checked ~ .menu li {
+    border: 1px solid #333;
+    height: 2.5em;
+    padding: 0.5em;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .menu > li {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0.5em 0;
+    width: 100%;
+    color: white;
+    background-color: #222;
+  }
+  .menu > li:not(:last-child) {
+    border-bottom: 1px solid #444;
+  }
+}
+
+@media (max-width: 550px) {
+  .sideBar ul li{
+    font-size: 20px;
+  }
+}
